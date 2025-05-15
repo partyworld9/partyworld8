@@ -1,3 +1,4 @@
+import os
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, types, F
@@ -9,8 +10,11 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram.enums import ParseMode
 from aiogram.utils.media_group import MediaGroupBuilder
 
-BOT_TOKEN = 'BOT_TOKEN'
-MANAGER_ID = manager_user_id
+from keep_alive import keep_alive
+keep_alive()
+
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
+MANAGER_ID = os.environ.get('manager_user_id')
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
